@@ -3,6 +3,7 @@
 
 class Banker {
 public:
+	// == Конструкторы и деструкторы ==
 	Banker();
 	Banker(const Banker& copy);
 
@@ -10,6 +11,8 @@ public:
 
 	Banker& operator= (const Banker& _copyBanker);
 
+
+	// == Методы ==
 	void setNewCards();
 
 	Card issueACard(Deck &deck);
