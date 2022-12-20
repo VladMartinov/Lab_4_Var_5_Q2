@@ -18,7 +18,7 @@ Deck::~Deck() {
 	delete[] cards;
 }
 
-int Deck::getCountOfCard() { return countOfCard; }
+int Deck::getCountOfCard() const { return countOfCard; }
 
 void Deck::fillDeck() {
 	wstring* allScore = new wstring[] { L"\u0032", L"\u0033", L"\u0034", L"\u0035", L"\u0036", L"\u0037", L"\u0038", L"\u0039", L"\u0030", L"\u004A", L"\u0051", L"\u004B", L"\u0041" };

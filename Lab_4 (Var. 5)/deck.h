@@ -8,7 +8,7 @@ public:
 
 	~Deck();
 
-	int getCountOfCard();
+	int getCountOfCard() const;
 	
 	void fillDeck();
 	void shuffleDeck();

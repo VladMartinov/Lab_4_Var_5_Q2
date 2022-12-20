@@ -1,13 +1,7 @@
 #include "DeckFormated.h"
 
-wstring DeckFormated::format(const Deck& deck) {
-	try {
-		for (int i = 0; i < 3; i++)
-			this->shuffleDeck();
-	}
-	catch (exception e) {
-		return L"False";
-	}
+// Адаптер для класса Deck, который принимает в себя объект этого класса и решафлит его 3 раза (якобы такие правило нашего казино, если не решафлить то не принимаем)
 
-	return L"True";
+wstring DeckFormated::format(const Deck& deck) {
+	return to_wstring(deck.getCountOfCard());
 }

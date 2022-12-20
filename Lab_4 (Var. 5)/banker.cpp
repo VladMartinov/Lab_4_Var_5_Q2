@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Конструкторы и деструкторы
 Banker::Banker() {
 	_cards = new Card[5];
 	_countOfCard = 0;
@@ -23,6 +24,7 @@ Banker& Banker::operator=(const Banker& _copyBanker) {
 	return *this;
 }
 
+// Очищает свои старые карты
 void Banker::setNewCards() {
 	delete[] _cards;
 	Card* newCards = new Card[5];
@@ -32,16 +34,18 @@ void Banker::setNewCards() {
 
 }
 
+// Выдает игроку карту
 Card Banker::issueACard(Deck &deck) {
 	wprintf(L"\n  (The Banker give for player the card)\n");
 	return deck.getCard();
 }
 
+// Берет себе карту
 void Banker::takeACard(Deck &deck) {
 	if (_countOfCard < 5) {
 		_cards[_countOfCard] = deck.getCard();
 		wprintf(L"\n (Banker) The card was taken: ");
-		friendPrintCard(_cards[_countOfCard]);
+		cout << _cards[_countOfCard];
 		_countOfCard++;
 	}
 	else {
@@ -52,13 +56,14 @@ void Banker::takeACard(Deck &deck) {
 void Banker::printAllCard() {
 	wprintf(L"\n%8Banker:");
 	for (int i = 0; i < _countOfCard; i++) {
-		friendPrintCard(_cards[i]);
+		cout << _cards[i];
 	}
 	if (sumOfCard() < 17) {
 		wprintf(L"  ??");
 	}
 }
 
+// Сумма очков всех карт
 int Banker::sumOfCard() {
 	int sum = 0;
 

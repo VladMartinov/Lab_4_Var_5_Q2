@@ -15,6 +15,7 @@ public:
 	wstring getScoreCard();
 	wchar_t getSuitCard();
 
+	friend ostream& operator<<(ostream&, const Card&);
 	Card& operator= (const Card &_copyCard);
 
 	void setScoreCard(wstring score);

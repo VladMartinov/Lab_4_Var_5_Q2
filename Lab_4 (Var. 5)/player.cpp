@@ -37,7 +37,7 @@ void Player::getTheCard(Card card) {
 	if (_countOfCard < 5) {
 		_cards[_countOfCard] = card;
 		wprintf(L"\n (Player) The card was taken: ");
-		friendPrintCard(_cards[_countOfCard]);
+		cout << _cards[_countOfCard];
 		_countOfCard++;
 	}
 	else {
@@ -70,7 +70,7 @@ double Player::placeABet( double bet ) {
 void Player::printAllCard(bool isStand = false) {
 	wprintf(L"\n%8Player:");
 	for (int i = 0; i < _countOfCard; i++) {
-		friendPrintCard(_cards[i]);
+		cout << _cards[i];
 	}
 	if (!isStand) {
 		wprintf(L"  ??");

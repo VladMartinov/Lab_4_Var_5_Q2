@@ -5,6 +5,7 @@
 class Player : public IPlayerActions {
 public:
 
+	// == Конструкторы и деструкторы ==
 	Player();
 	Player(double money);
 	Player(const Player& copy);
@@ -13,13 +14,15 @@ public:
 
 	//Card* removeCard();
 	
+	// Переопределение операторов
 	Player& operator= (const Player& _copyPlayer);
 	
-	void getTheCard(Card card);
-
-	void setMoney(double money);
+	// Геттеры/Сетеры
 	double getMoney();
+	void setMoney(double money);
 
+	// == Методы ==
+	void getTheCard(Card card);
 	void setNewCards();
 
 	double placeABet( double bet ) override;
