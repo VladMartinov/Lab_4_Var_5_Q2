@@ -3,6 +3,8 @@
 
 using namespace std;
 
+
+// Конструкторы копирования, методы копирования, обычные констркукторы
 Player::Player() {
 	_money = 100;
 	_cards = new Card[5];
@@ -48,6 +50,7 @@ void Player::getTheCard(Card card) {
 void Player::setMoney(double money) { _money = money; }
 double Player::getMoney () { return _money; }
 
+// Добавление карты в нашу колоду
 void Player::setNewCards() {
 	delete[] _cards;
 	Card *newCards = new Card[5];
@@ -77,6 +80,7 @@ void Player::printAllCard(bool isStand = false) {
 	}
 }
 
+// Сумма всех очков кард в нашем наборе
 int Player::sumOfCard(bool isOne = false) {
 	int sum = 0;
 

@@ -122,8 +122,9 @@ void GameDesk::startTheGame() {
 				while (flagOfProces) {
 					try {
 
+						summeryPlayer = player.sumOfCard(true);
 						// Если мы набрали больше 21 выбрасываем exception 
-						if (player.sumOfCard(true) > 21) {
+						if (summeryPlayer > 21) {
 							throw 1;
 						}
 
@@ -157,7 +158,7 @@ void GameDesk::startTheGame() {
 							bool flagTake = true;
 							// Диллер набирает карты в колоду ( по европейскому стилю, если у него меньше 17 то он берет еще )
 							while (flagTake) {
-								if (summeryBanker < 17) {
+								if (summeryBanker < 17 && banker.getCountOfCard() < 5) {
 									randDeck = rand() % 4;
 									banker.takeACard(decks[randDeck]);
 								}
@@ -211,7 +212,7 @@ void GameDesk::startTheGame() {
 						else if (answer == 3) {
 							// Удвоение ставки если у нас достаточно средств
 							if (isHit) {
-								if (player.getMoney() >= bet * 2) {
+								if (player.getMoney() >= bet) {
 									player.placeABet(bet);
 
 									bet = bet * 2;
@@ -232,8 +233,7 @@ void GameDesk::startTheGame() {
 					catch (int i) {
 						if (i == 1) {
 							flagOfProces = false;
-							int sum = player.sumOfCard(true);
-							wprintf(L"\n You've lost: you have too much ((Your)%i > 21), Bet: %.2f. Final balance: %.2f", sum, bet, player.getMoney());
+							wprintf(L"\n You've lost: you have too much ((Your)%i > 21), Bet: %.2f. Final balance: %.2f", summeryPlayer, bet, player.getMoney());
 							continue;
 						}
 						else if (i == 2) {

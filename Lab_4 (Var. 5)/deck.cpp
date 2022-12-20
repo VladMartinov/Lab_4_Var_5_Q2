@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Конструкторы и деструктор
 Deck::Deck() {
 	Sleep(1000);
 	countOfCard = 0;
@@ -18,9 +19,11 @@ Deck::~Deck() {
 	delete[] cards;
 }
 
+// Оставшееся кол-во кард в колоде
 int Deck::getCountOfCard() const { return countOfCard; }
 
 void Deck::fillDeck() {
+	// массивы для заполнения калоды
 	wstring* allScore = new wstring[] { L"\u0032", L"\u0033", L"\u0034", L"\u0035", L"\u0036", L"\u0037", L"\u0038", L"\u0039", L"\u0030", L"\u004A", L"\u0051", L"\u004B", L"\u0041" };
 	wchar_t* allSuit = new wchar_t[] { L'\u2665', L'\u2663', L'\u2666', L'\u2660' };
 	cards = new Card*[4];
@@ -30,7 +33,7 @@ void Deck::fillDeck() {
 
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 13; j++) {
-			if (j == 8) {
+			if (j == 8) { // Т.к. 10 занимает состоит из 2х чаров
 				cards[i][j] = *(new Card(L"\u0031\u0030", allSuit[i]));
 			}
 			else {
@@ -70,6 +73,7 @@ void Deck::shuffleDeck() {
 
 }
 
+// Достаем карту снизу колоды
 Card Deck::getCard() { 
 	int i;
 	if ((countOfCard / 4) >= 3) i = 3;
@@ -81,6 +85,7 @@ Card Deck::getCard() {
 	return cards[i][j];
 }
 
+// Обновляем колоду (не использовалось)
 void Deck::newDeck() {
 	Sleep(1000);
 	countOfCard = 0;

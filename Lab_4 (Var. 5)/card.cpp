@@ -50,8 +50,3 @@ ostream& operator<<(ostream& os, const Card& value) {
 	wcout << setw(4) << value._scoreCard << value._suitCard;
 	return os;
 }
-
-// Просто метод для вывода (использовал раньше до перегрузки потока вывода)
-void friendPrintCard(Card &a) {
-	wprintf(L"  %s%c", a._scoreCard.c_str(), a._suitCard);
-}

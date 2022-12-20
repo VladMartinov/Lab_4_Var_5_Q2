@@ -24,6 +24,8 @@ Banker& Banker::operator=(const Banker& _copyBanker) {
 	return *this;
 }
 
+int Banker::getCountOfCard() { return _countOfCard; }
+
 // Очищает свои старые карты
 void Banker::setNewCards() {
 	delete[] _cards;

@@ -11,6 +11,7 @@ public:
 
 	Banker& operator= (const Banker& _copyBanker);
 
+	int getCountOfCard();
 
 	// == Ìועמהû ==
 	void setNewCards();
